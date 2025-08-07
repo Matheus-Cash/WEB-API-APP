@@ -1,4 +1,4 @@
-import api from '../../servicos/api'
+import api from "../../servicos/api";
 import React, { useState } from 'react';
 import { Text, View, Image, TouchableOpacity, TextInput, Alert, ScrollView } from 'react-native';
 import estilos from './estilos';
@@ -6,6 +6,13 @@ import estilos from './estilos';
 export default function Principal({ navigation }) {
     const [nomeUsuario, setNomeUsuario] = useState('');
     const [usuario, setUsuario] = useState({});
+
+    function Busca () {
+        api.get('/Users').then(response => { console.log(response.data)
+    })
+    .catch(error => { console.log(error)
+    })
+    }
 
     return (
         <ScrollView>
@@ -41,6 +48,7 @@ export default function Principal({ navigation }) {
                 />
 
                 <TouchableOpacity style={estilos.botao}>
+                    onPress={() =>  Busca()}
                     <Text style={estilos.textoBotao}>
                         Buscar
                     </Text>
