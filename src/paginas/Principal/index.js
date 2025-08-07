@@ -1,3 +1,4 @@
+import api from '../../servicos/api'
 import React, { useState } from 'react';
 import { Text, View, Image, TouchableOpacity, TextInput, Alert, ScrollView } from 'react-native';
 import estilos from './estilos';
